@@ -23,3 +23,10 @@ while 1:
     screen.fill(black)
     screen.blit(ball, ballrect)
     pygame.display.flip()
+
+
+# Update only where the rectangle used to be and where the rectangle is now
+
+
+# If you click or you press a key, the ball increases or decreases in speed. But nothing happens if you try to decrease past 0
+# Alternative: Click reverse the direction
