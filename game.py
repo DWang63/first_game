@@ -18,17 +18,24 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 if speed[0] < 0:
-                    speed[0] = speed[0] - 3
-
+                    speed[0]-=3
                 elif speed [0] > 0:
-                    speed[0] = speed[0] + 3
+                    speed[0]+=3
+                elif speed [1] < 0:
+                    speed[1]-=3
+                elif speed [1] > 0:
+                    speed[1]+=3
                 
-        if event.type == pygame.K_DOWN:
-            if speed[1] < 0:
-                speed[1] = speed[0] - 3
-
-            elif speed[1] < 0:
-                speed[1] = speed[0] + 3
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_DOWN:
+                if speed[1] < 0:
+                    speed[1]+=3
+                elif speed[1] < 0:
+                    speed[1]-=3
+                elif speed[0] < 0:
+                    speed[0]+=3
+                elif speed[0] > 0:
+                    speed[0]-=3
 
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
@@ -38,11 +45,10 @@ while run:
 
     screen.fill(black)
     screen.blit(ball, ballrect)
-    pygame.display.update(ballrect=None, ball=None)
+    pygame.display.update(ballrect((x, y, w, h), ball((x, y, w, h))
 
 
 # Update only where the rectangle used to be and where the rectangle is now
-
 
 # If you click or you press a key, the ball increases or decreases in speed. But nothing happens if you try to decrease past 0
 # Alternative: Click reverse the direction
