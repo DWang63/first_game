@@ -9,17 +9,30 @@ black = 0, 0, 0
 screen = pygame.display.set_mode(screen_size)
 
 #loading and setting up the photos
-ball = pygame.image.load("Pixel.ball.png")
-ball = pygame.transform.scale(ball, (50, 50))
+ball = pygame.image.load("Basketball_shooting game/Pixel.ball.png")
 #rescaling the photos
+ball = pygame.transform.scale(ball, (50, 50))
 ballrect = ball.get_rect()
 oldballrect = ballrect
+ballrect = ballrect.move(100, 650)
 
-background = pygame.image.load("Brick.wall.png")
+
+basketball_net = pygame.image.load("Basketball_shooting game/Basketball_net.png")
+basketball_net = pygame.transform.scale(basketball_net, (200, 300))
+basketball_netrect = basketball_net.get_rect()
+basketball_netrect = basketball_netrect.move(1180, 250)
+
+
+arrow = pygame.image.load("Basketball_shooting game/red_arrow.png")
+arrow = pygame.transform.scale(arrow, (75, 75))
+arrowrect = arrow.get_rect()
+arrowrect = arrowrect.move(165, 610)
+
+background = pygame.image.load("Basketball_shooting game/Brick.wall.png")
 background = pygame.transform.scale(background, (1400, 800))
 background_rect = background.get_rect()
 
-player = pygame.image.load("basketball.player.png")
+player = pygame.image.load("Basketball_shooting game/basketball.player.png")
 player = pygame.transform.scale(player, (100, 300))
 player_rect = player.get_rect()
 player_rect.bottomleft = screen.get_rect().bottomleft
@@ -34,9 +47,10 @@ while run:
             sys.exit()
     
     screen.blit(background, background_rect)
-    screen.blit(player, player_rect, )
+    screen.blit(player, player_rect)
     screen.blit(ball, ballrect)
-    
+    screen.blit(basketball_net, basketball_netrect)
+    screen.blit(arrow, arrowrect)
     pygame.display.update()
 
 
